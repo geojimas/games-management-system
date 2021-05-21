@@ -1,0 +1,80 @@
+body{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+a,
+.navbar-item{
+    color: #f5f6fa;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+h3{
+    text-decoration: underline;
+}
+
+i{
+    margin-right: 5px;
+}
+
+.action{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.action button{
+    margin: 5px;
+}
+
+button:active{
+    transform: scale(0.9);
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0be881;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd32a;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150px;
+
+}
+
+.li-games {
+    border: 2px solid rgb(230, 65, 65);
+}
+
+footer {
+    background-color: #e93e27;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #e23f36;
+}
+
+footer .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
