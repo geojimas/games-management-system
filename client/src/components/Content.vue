@@ -131,7 +131,7 @@ export default {
     const mode = computed(() => (payloadData.value ? 'Edit' : 'Add'))
 
     // Edit Button
-    const edit = (payload) => {
+    const edit = payload => {
       if (payload !== false) {
         newTitle.value = payload.title
         newKind.value = payload.kind
@@ -149,11 +149,11 @@ export default {
       loading.value = true
       axios
         .get('http://localhost:5000/api/movies')
-        .then((response) => {
+        .then(response => {
           movies.value = response.data.data
           loading.value = false
         })
-        .catch((error) => {
+        .catch(error => {
           loading.value = false
           Swal.fire({
             title: 'error!',
@@ -176,7 +176,7 @@ export default {
             director: newdirector.value,
             rate: parseFloat(newRate.value),
           })
-          .then((response) => {
+          .then(response => {
             movies.value.push(response.data.data)
             posting.value = false
             newTitle.value = ''
@@ -191,7 +191,7 @@ export default {
               confirmButtonText: 'OK',
             })
           })
-          .catch((error) => {
+          .catch(error => {
             movies.value = [{ title: 'Posting failed' }]
             Swal.fire({
               title: 'error!',
@@ -210,8 +210,8 @@ export default {
             director: newdirector.value,
             rate: parseFloat(newRate.value),
           })
-          .then((response) => {
-            let index = movies.value.map((movie) => movie._id).indexOf(payloadData.value._id)
+          .then(response => {
+            let index = movies.value.map(movie => movie._id).indexOf(payloadData.value._id)
             movies.value[index] = response.data.data
             posting.value = false
             newTitle.value = ''
@@ -227,7 +227,7 @@ export default {
               confirmButtonText: 'OK',
             })
           })
-          .catch((error) => {
+          .catch(error => {
             movies.value = [{ title: 'Update failed' }]
             Swal.fire({
               title: 'error!',
@@ -240,12 +240,12 @@ export default {
     }
 
     // Delete method
-    const deleteAction = (_id) => {
+    const deleteAction = _id => {
       deleting.value = true
       axios
         .delete(`http://localhost:5000/api/movies/${_id}`)
         .then(() => {
-          let index = movies.value.map((movie) => movie._id).indexOf(_id)
+          let index = movies.value.map(movie => movie._id).indexOf(_id)
           movies.value.splice(index, 1)
           deleting.value = false
           Swal.fire({
@@ -255,7 +255,7 @@ export default {
             confirmButtonText: 'OK',
           })
         })
-        .catch((error) => {
+        .catch(error => {
           Swal.fire({
             title: 'error!',
             text: error,
